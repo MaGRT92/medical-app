@@ -7,7 +7,7 @@
   <%= form_with url: session_path do |form| %>
     <div class="mb-3 form-floating">
       <%= form.text_field :name, autofocus: true, value: params[:name], class: "form-control" %>
-      <%= form.label :name, "Użytkownik", class: "form-labela" %>
+      <%= form.label :name, "Użytkownik" %>
     </div>
     <div class="mb-3 form-floating">
       <%= form.password_field :password, class: "form-control" %>
