@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  layout "welcome"
   allow_unauthenticated_access only: %i[ new create ]
   rate_limit to: 10, within: 3.minutes, only: :create, with: -> { redirect_to new_session_url, alert: "Try again later." }
   before_action -> { redirect_to root_url if authenticated? }, only: %i[new create]
@@ -12,7 +13,7 @@ class SessionsController < ApplicationController
       start_new_session_for user
       redirect_to after_authentication_url
     else
-      redirect_to new_session_path, alert: "Try another name or password."
+      redirect_to new_session_path, alert: "Nieprawidłowe dane logowania"
     end
   end
 

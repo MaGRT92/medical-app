@@ -1,9 +1,20 @@
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
-<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
-<%= form_with url: session_path do |form| %>
-  <%= form.text_field :name, autofocus: true, autocomplete: "username", placeholder: "Enter your name", value: params[:name] %><br>
-  <%= form.password_field :password, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %><br>
-  <%= form.submit "Sign in" %>
-<% end %>
-<br>
-<%= link_to "Forgot password?", new_password_path %>
+<main class="form-signin w-100 m-auto">
+  <h1 class="h3 mb-3 fw-normal">Proszę się zalogować</h1>
+  <div class="mb-3">
+    <%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+    <%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+  </div>
+  <%= form_with url: session_path do |form| %>
+    <div class="mb-3 form-floating">
+      <%= form.text_field :name, autofocus: true, value: params[:name], class: "form-control" %>
+      <%= form.label :name, "Użytkownik", class: "form-labela" %>
+    </div>
+    <div class="mb-3 form-floating">
+      <%= form.password_field :password, class: "form-control" %>
+      <%= form.label :password, "Hasło" %>
+    </div>
+    <%= form.submit "Zaloguj", class: "btn btn-primary w-100" %>
+  <% end %>
+  <br>
+  <%# link_to "Forgot password?", new_password_path %>
+</main>
