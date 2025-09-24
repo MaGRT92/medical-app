@@ -1,0 +1,45 @@
+<div class="">
+</div>
+<div class="min-vh-100 p-3 text-bg-dark">
+  <div class="dropdown">
+    <a class="dropdown-toggle text-white text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <%= Current.user.name %>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-dark shadow">
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+      <li>
+        <%= link_to 'Wyloguj', session_path, method: :delete, data: {turbo_method: :delete}, class: 'dropdown-item' %>
+      </li>
+    </ul>
+  </div>
+  <hr>
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a href="#" class="nav-link active" aria-current="page">
+        Home
+      </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link text-white">
+        Dashboard
+      </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link text-white">
+        Orders
+      </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link text-white">
+        Products
+      </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link text-white">
+        Customers
+      </a>
+    </li>
+  </ul>
+  <hr>
+</div>

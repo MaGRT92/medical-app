@@ -4,9 +4,9 @@
     <%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
     <%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
   </div>
-  <%= form_with url: session_path do |form| %>
+  <%= form_with url: session_path, html: { autocomplete: :off } do |form| %>
     <div class="mb-3 form-floating">
-      <%= form.text_field :name, autofocus: true, value: params[:name], class: "form-control" %>
+      <%= form.text_field :name, autofocus: true, value: flash[:name], class: "form-control" %>
       <%= form.label :name, "Użytkownik" %>
     </div>
     <div class="mb-3 form-floating">

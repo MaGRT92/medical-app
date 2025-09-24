@@ -21,10 +21,14 @@
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body>
-    <% if authenticated? %>
-      <%= link_to 'Logout', session_path, method: :delete, data: {turbo_method: :delete} %>
-    <% end %>
-    <%= yield %>
+  <body class="container-fluid p-0">
+    <div class="row">
+      <div class="col-2">
+        <%= render 'shared/sidebar' %>
+      </div>
+      <div class="col-10">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
