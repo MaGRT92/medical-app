@@ -22,6 +22,9 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
+    <% if authenticated? %>
+      <%= link_to 'Logout', session_path, method: :delete, data: {turbo_method: :delete} %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
