@@ -18,11 +18,13 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
+  host: localhost
+  username: postgres
+  password: postgres
 
 development:
   <<: *default
-  database: mgrt_med_development
+  database: medical_app_development
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -56,7 +58,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: mgrt_med_test
+  database: medical_app_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,18 +83,18 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: mgrt_med_production
+    database: medical_app_production
     username: mgrt_med
     password: <%= ENV["MGRT_MED_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
-    database: mgrt_med_production_cache
+    database: medical_app_production_cache
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: mgrt_med_production_queue
+    database: medical_app_production_queue
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: mgrt_med_production_cable
+    database: medical_app_production_cable
     migrations_paths: db/cable_migrate
